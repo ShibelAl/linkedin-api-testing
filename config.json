@@ -1,0 +1,74 @@
+{
+  "browser": "Chrome",
+  "base_url": "https://linkedin-api8.p.rapidapi.com",
+  "jira_url" : "https://shibelalshech300.atlassian.net/",
+  "jira_email" : "shibelalshech300@gmail.com",
+  "jira_key" : "LAT",
+
+  "get_company_jobs_payload" : {
+	"companyIds": [5383240, 2382910],
+	"page": 1
+  },
+  "get_company_jobs_headers" : {
+	"x-rapidapi-key": "989ecf11b6mshe6f163870c5be08p12c207jsn3e7938597eee",
+	"x-rapidapi-host": "linkedin-api8.p.rapidapi.com",
+	"Content-Type": "application/json"
+  },
+
+  "job_fields" : [
+            "id", "title", "url", "referenceId", "posterId",
+            "company", "location", "type", "postDate", "postAt", "postedTimestamp"
+  ],
+
+  "search_jobs_endpoint" : "search-jobs",
+  "search_jobs_headers" : {
+	"x-rapidapi-key": "989ecf11b6mshe6f163870c5be08p12c207jsn3e7938597eee",
+	"x-rapidapi-host": "linkedin-api8.p.rapidapi.com"
+  },
+
+  "search_post_by_keyword_endpoint" : "search-posts",
+  "search_post_by_keyword_payload" : {
+    "keyword" : "golang",
+	"sortBy": "date_posted",
+	"datePosted": "past-24h",
+	"start": "0"
+  },
+  "search_post_by_keyword_headers" : {
+	"x-rapidapi-key": "989ecf11b6mshe6f163870c5be08p12c207jsn3e7938597eee",
+	"x-rapidapi-host": "linkedin-api8.p.rapidapi.com",
+	"Content-Type": "application/json"
+  },
+
+  "search_locations_endpoint" : "search-locations",
+  "search_locations_querystring" : {"keyword":"berlin"},
+  "search_locations_headers" : {
+	"x-rapidapi-key": "989ecf11b6mshe6f163870c5be08p12c207jsn3e7938597eee",
+	"x-rapidapi-host": "linkedin-api8.p.rapidapi.com"
+  },
+
+  "get_profile_data_by_url_endpoint" : "get-profile-data-by-url",
+  "get_profile_data_by_url_querystring" : {"url":"https://www.linkedin.com/in/shibel-alshech-7501b4308/"},
+  "get_profile_data_by_url_headers" : {
+	"x-rapidapi-key": "989ecf11b6mshe6f163870c5be08p12c207jsn3e7938597eee",
+	"x-rapidapi-host": "linkedin-api8.p.rapidapi.com"
+  },
+  "username" : "shibel-alshech-7501b4308",
+
+  "get_profile_data_and_connections_follower_count_endpoint" : "data-connection-count",
+  "get_profile_data_and_connections_follower_count_querystring" : {"username":"shibel-alshech-7501b4308"},
+  "get_profile_data_and_connections_follower_count_headers" : {
+	"x-rapidapi-key": "989ecf11b6mshe6f163870c5be08p12c207jsn3e7938597eee",
+	"x-rapidapi-host": "linkedin-api8.p.rapidapi.com"
+  },
+  "fieldOfStudy": "Computer Science",
+  "degree": "Bachelor's degree",
+  "follower": 2,
+
+  "find_email_address_endpoint" : "linkedin-to-email",
+  "find_email_address_querystring" : {"url":"https://www.linkedin.com/in/tzahi-anidgar-b8947b255/"},
+  "find_email_address_headers" : {
+	"x-rapidapi-key": "989ecf11b6mshe6f163870c5be08p12c207jsn3e7938597eee",
+	"x-rapidapi-host": "linkedin-api8.p.rapidapi.com"
+  },
+  "emails" : null
+}
