@@ -4,7 +4,7 @@
 
 This project is designed to test various LinkedIn API endpoints using Python, unittest, and the Page Object Model (POM) structure. The project consists of four main components: infrastructure (infra), business logic (logic), tests (test), and a configuration file (config.json). There are 10 different tests focusing on GET and POST requests, with each test documented in a Word file.
 
-**API Source:** The LinkedIn APIs used in this project were sourced from [Swagger](https://linkedin-api8.p.rapidapi.com).
+**API Source:** The LinkedIn APIs used in this project were sourced from [Swagger](https://rapidapi.com/rockapis-rockapis-default/api/linkedin-api8).
 
 ## Components
 
@@ -27,12 +27,15 @@ This project is designed to test various LinkedIn API endpoints using Python, un
 1. Clone the repository:
    ```bash
    git clone https://github.com/ShibelAl/linkedin-api-testing.git
+
+2. Go to the project directory:
+   ```bash
    cd linkedin-api-testing
 
-2. Install the required Python package:
+3. Install the required Python package:
    pip install unittest
 
-3. Set up your config.json file with the necessary configurations, such as API keys and endpoints.
+4. Set up your config.json file with the necessary configurations, such as API keys and endpoints.
 
 ### Running the Tests
 
