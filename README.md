@@ -32,10 +32,15 @@ This project is designed to test various LinkedIn API endpoints using Python, un
    ```bash
    cd linkedin-api-testing
 
-3. Install the required Python package:
+3. Install unittest for running the tests:
+   ```bash
    pip install unittest
 
-4. Set up your config.json file with the necessary configurations, such as API keys and endpoints.
+4. Install jira for reporting bugs to Jira:
+   ```bash
+   pip install jira
+
+5. Set up your config.json file with the necessary configurations, such as API keys and endpoints.
 
 ### Running the Tests
 
