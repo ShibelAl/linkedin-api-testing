@@ -5,6 +5,7 @@
 This project is designed to test various LinkedIn API endpoints using Python, unittest, and the Page Object Model (POM) structure. The project consists of four main components: infrastructure (infra), business logic (logic), tests (test), and a configuration file (config.json). There are 10 different tests focusing on GET and POST requests, with each test documented in a Word file.
 
 **API Source:** The LinkedIn APIs used in this project were sourced from [RapidAPI](https://rapidapi.com/rockapis-rockapis-default/api/linkedin-api8).
+#### Important Note: These tests are dependent on the [RapidAPI](https://rapidapi.com/hub) Hub for access to the LinkedIn API endpoints. Some tests may require a subscription to the RapidAPI website for full functionality.
 
 ## Components
 
