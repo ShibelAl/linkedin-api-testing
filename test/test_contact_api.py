@@ -2,6 +2,8 @@ import unittest
 from infra.api_wrapper import APIWrapper
 from infra.config_provider import ConfigProvider
 from logic.contact_API import ContactAPI
+from infra.jira_handler import JiraHandler
+from infra.test_failure_handler import TestFailureHandler
 
 
 class TestContactAPI(unittest.TestCase):
@@ -11,11 +13,13 @@ class TestContactAPI(unittest.TestCase):
         Set up the test environment by loading the configuration and initializing the API wrapper,
         and then making a contact_API object and its API response.
         """
+        self.jira_handler = JiraHandler()
         self._config = ConfigProvider.load_config_json()
         self._api_request = APIWrapper()
         self.contact = ContactAPI(self._api_request)
         self.response = self.contact.get_email_address()
 
+    @TestFailureHandler.handle_test_failure
     def test_user_did_not_provide_email(self):
         """
         Tests that the user did not provide an email.

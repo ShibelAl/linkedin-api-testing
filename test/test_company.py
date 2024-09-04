@@ -4,6 +4,7 @@ from infra.config_provider import ConfigProvider
 from logic.models.company_jobs import CompanyJobs
 from logic.company import Company
 from infra.jira_handler import JiraHandler
+from infra.test_failure_handler import TestFailureHandler
 
 
 class TestCompany(unittest.TestCase):
@@ -14,6 +15,7 @@ class TestCompany(unittest.TestCase):
         """
         Set up the test environment by loading the configuration and initializing the API wrapper.
         """
+        self.jira_handler = JiraHandler()
         self._config = ConfigProvider.load_config_json()
         self._api_request = APIWrapper()
         self.payload = self._config['get_company_jobs_payload']
@@ -21,6 +23,7 @@ class TestCompany(unittest.TestCase):
         self.page = self.payload['page']
         self.company_object = CompanyJobs(self.company_ids, self.page)
 
+    @TestFailureHandler.handle_test_failure
     def test_company_response_data_structures(self):
         """
         Test if the data structure of the whole response and the data-key value is Dictionary,
@@ -44,6 +47,7 @@ class TestCompany(unittest.TestCase):
         self.assertIsInstance(company_jobs_body['data']['items'], list)
         self.assertIsInstance(company_jobs_body['data']['items'][self.FIRST_ELEMENT]['company'], dict)
 
+    @TestFailureHandler.handle_test_failure
     def test_website_page_is_not_empty(self):
         """
         Tests that the company jobs page contains at least one job.
@@ -59,6 +63,7 @@ class TestCompany(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTrue(len(company_jobs_data) > 0, "There is no jobs appearing in the page")
 
+    @TestFailureHandler.handle_test_failure
     def test_each_job_has_all_fields(self):
         """
         Verify that each job in the API response includes all required fields.
@@ -78,6 +83,7 @@ class TestCompany(unittest.TestCase):
             jira_handler.create_issue(self._config['jira_key'], "test_each_job_has_all_fields", self.FUNCTION_BUG)
             raise AssertionError("assertion error")
 
+    @TestFailureHandler.handle_test_failure
     def test_job_url_goes_to_correct_job_id(self):
         """
         Test to verify that job URLs correspond to the correct job IDs.

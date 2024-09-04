@@ -3,6 +3,8 @@ from infra.api_wrapper import APIWrapper
 from infra.config_provider import ConfigProvider
 from logic.models.search_results import SearchResults
 from logic.post import Post
+from infra.jira_handler import JiraHandler
+from infra.test_failure_handler import TestFailureHandler
 
 
 class TestCompany(unittest.TestCase):
@@ -11,6 +13,7 @@ class TestCompany(unittest.TestCase):
         """
         Set up the test environment by loading the configuration and initializing the API wrapper.
         """
+        self.jira_handler = JiraHandler()
         self._config = ConfigProvider.load_config_json()
         self._api_request = APIWrapper()
         self.payload = self._config['search_post_by_keyword_payload']
@@ -21,6 +24,7 @@ class TestCompany(unittest.TestCase):
         self.search_results_object = SearchResults(
             self.keyword, self.first_filter, self.second_filter, self.third_filter)
 
+    @TestFailureHandler.handle_test_failure
     def test_jobs_appearing_by_time_order(self):
         """
         Tests that job postings are ordered from newest to oldest based on their post date.
